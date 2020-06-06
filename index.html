@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta property="og:title" content="InstantTable" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://instanttable.netlify.app" />
+	<meta property="og:image" content="https://instanttable.netlify.com/static/img/thumb.jpeg" />
+	<meta property="og:site_name" content="InstantTable" />
+	<meta property="og:description" content="InstantTableは、表を手軽に作成するWebアプリです。表をさくっと作ってブログや資料作成の時間を短縮しましょう。" />
+	<meta property="fb:app_id" content="2471674503145611" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@jiiiimy00" />
+	<meta name="twitter:player" content="@jiiiimy00" />
+	<title>InstantTable</title>
+	<link rel="stylesheet" href="./assets/css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container _all" id="all">
+		<div class="sideArea">
+			<h1>InstantTable</h1>
+			<div class="area _intro">
+				<p>α版：使い方</p>
+				<ol>
+					<li>最大で5行：7列の表を作れます。</li>
+					<li>全てのセルに値を入力できます。</li>
+					<li>保存はできません。<br>作成中に"リロード"や"戻る"をしないよう気をつけてください。</li>
+					<li>完成したらスクショしてブログや資料に使ってください。</li>
+					<li>ソースコードは<a href="">Github</a>に公開しています。</li>
+					<li>感想や要望など、ぜひ下記フォームからお送りください。</li>
+				</ol>
+			</div>
+			<div class="area _contact">
+				<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeVVYxxvYDpcpkBAmc_5m_gezZIHdbRFBX_S43GjjWORRHPXQ/formResponse">
+					<textarea class="_textarea" name="entry.1843453482" placeholder="感想や要望をお寄せください。GoogleFormを使用しています。送信すると作成中の表はリセットされてしまいますのでご注意ください。" required></textarea>
+					<button class="_submit" type="submit"><span>送信</span></button>
+				</form>
+			</div>
+		</div>
+		<div class="mainArea">
+			<div class="container _table">
+				<div class="contents">
+					<div class="table _column">
+						<div class="table _c_delete">
+							<div class="r_delete">
+							</div>
+							<div class="c_delete">
+							</div>
+							<div class="c_delete" v-for="(ch, index) in columnHead">
+								<span class="_btn" :class="{_block: ch.delete}" @click="deleteColumn(index)"><span class="_minus"></span></span>
+							</div>
+							<div class="c_add" v-if="columnHead.length < 5">
+								<span class="_btn" @click="addColumn"><span class="_plus">+</span></span>
+							</div>
+						</div>
+						<div class="table _head">
+							<div class="r_delete">
+								<span class="_btn"><span class="_minus"></span></span>
+							</div>
+							<div class="cell _dead">
+								<p>powerd by InstantTable</p>
+							</div>
+							<div class="cell _c_head" v-for="(ch, index) in  columnHead">
+								<input class="_textarea" v-model="ch.text">
+							</div>
+						</div>
+					</div>
+					<div class="table _row" v-for="(r, index) in row">
+						<div class="r_delete">
+							<span class="_btn" :class="{_block: r[0].delete}" @click="deleteRow(index)" ><span class="_minus"></span></span>
+						</div>
+						<div class="table _r_head" v-for="(rd, index) in r">
+							<div class="cell" :class="[{_r_head: rd.head},{_data: rd.data}]">
+								<input class="_textarea" v-model="rd.text">
+							</div>
+						</div>
+					</div>
+					<div class="r_add" v-if="row.length < 7">
+						<span class="_btn" @click="addRow"><span class="_plus">+</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="./assets/js/main.js"></script>
+</body>
+</html>
