@@ -57,10 +57,10 @@
 							<div class="c_delete">
 							</div>
 							<div class="c_delete" v-for="(ch, index) in columnHead">
-								<span class="_btn" :class="{_block: ch.delete}" @click="deleteColumn(index)"><span class="_minus"></span></span>
+								<span class="_btn gtm-delete-column" :class="{_block: ch.delete}" @click="deleteColumn(index)"><span class="_minus gtm-delete-column"></span></span>
 							</div>
 							<div class="c_add" v-if="columnHead.length < 5">
-								<span class="_btn" @click="addColumn"><span class="_plus">+</span></span>
+								<span class="_btn gtm-add-column" @click="addColumn"><span class="_plus gtm-add-column">+</span></span>
 							</div>
 						</div>
 						<div class="table _head">
@@ -77,7 +77,7 @@
 					</div>
 					<div class="table _row" v-for="(r, index) in row">
 						<div class="r_delete">
-							<span class="_btn" :class="{_block: r[0].delete}" @click="deleteRow(index)" ><span class="_minus"></span></span>
+							<span class="_btn gtm-delete-row" :class="{_block: r[0].delete}" @click="deleteRow(index)" ><span class="_minus gtm-delete-row"></span></span>
 						</div>
 						<div class="table _r_head" v-for="(rd, index) in r">
 							<div class="cell" :class="[{_r_head: rd.head},{_data: rd.data}]">
@@ -86,7 +86,7 @@
 						</div>
 					</div>
 					<div class="r_add" v-if="row.length < 7">
-						<span class="_btn" @click="addRow"><span class="_plus">+</span></span>
+						<span class="_btn gtm-add-row" @click="addRow"><span class="_plus gtm-add-row">+</span></span>
 					</div>
 				</div>
 			</div>
