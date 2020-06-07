@@ -10,29 +10,29 @@ let vm = new Vue({
 		}],
 		row: [
 			[{
-				text0: '',
+				text: '',
 				delete: false,
 				head: true,
 				data: false,
 			}, {
-				text0: '',
+				text: '',
 				head: false,
 				data: true,
 			}, {
-				text0: '',
+				text: '',
 				head: false,
 				data: true,
 			}],[{
-				text0: '',
+				text: '',
 				delete: true,
 				head: true,
 				data: false,
 			}, {
-				text1: '',
+				text: '',
 				head: false,
 				data: true,
 			}, {
-				text1: '',
+				text: '',
 				head: false,
 				data: true,
 			}]
