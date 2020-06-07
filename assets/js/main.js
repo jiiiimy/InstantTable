@@ -10,29 +10,29 @@ let vm = new Vue({
 		}],
 		row: [
 			[{
-				text: '',
+				text0: '',
 				delete: false,
 				head: true,
 				data: false,
 			}, {
-				text: '',
+				text0: '',
 				head: false,
 				data: true,
 			}, {
-				text: '',
+				text0: '',
 				head: false,
 				data: true,
 			}],[{
-				text: '',
+				text0: '',
 				delete: true,
 				head: true,
 				data: false,
 			}, {
-				text: '',
+				text1: '',
 				head: false,
 				data: true,
 			}, {
-				text: '',
+				text1: '',
 				head: false,
 				data: true,
 			}]
@@ -41,9 +41,9 @@ let vm = new Vue({
 	methods: {
 		addColumn: function () {
 			let col = { text: '', delete: true }
-			let data = { text: '', head: false, data: true}
 			this.columnHead.push(col);
 			for (let i = 0; i < this.row.length; i++) {
+				let data = { text: '', head: false, data: true}
 				this.row[i].push(data);
 			}
 		},
@@ -55,8 +55,8 @@ let vm = new Vue({
 		},
 		addRow: function(){
 			let row = [{ text: '',delete: true, head: true, data: false }]
-			let data = { text: '', head: false, data: true }
 			for (let i = 0; i < this.row[0].length - 1; i++) {
+				let data = { text: '', head: false, data: true }
 				row.push(data);
 			}
 			this.row.push(row);
