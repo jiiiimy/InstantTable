@@ -262,3 +262,25 @@ textarea{
 .r_delete ._btn._block{
 	display: block;
 }
+
+
+@media screen and  (max-width:1100px) {
+	.container._all {
+		height: auto;
+		display: block;
+	}
+	.sideArea {
+		width: 100%;;
+	}
+	.area._contact {
+		position: static;
+		padding: 0 0 10px 0;
+	}
+	.mainArea{
+		width: 100%;
+		overflow-x: scroll;
+	}
+	.container._table{
+		width: 850px;
+	}
+}
